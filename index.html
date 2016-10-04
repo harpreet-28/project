@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body >
+    <div ng-controller="myController as main" id="mainContainer">
+            <h2>Task Tracker</h2>
+            <h4>v2.0</h4>
+        
+        <div id="container">
+            <form ng-submit="main.printData()" id="leftContainer">
+                <p>Create a Task</p>
+                Task Name
+                <br>
+                <input type="text" name="firstName" ng-model= main.newName>
+                <br> Date
+                <br>
+                <input type="text" name="lastName" ng-model= main.newDate>
+                <br> Assigned To
+                <br>
+                <input type="text" name="occupation" ng-model= main.newAssigned>
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+            <div id="rightContainer">
+                <p>Existing Task</p>
+                        <table>
+                            <tr ng-repeat="mainTask in main.jData">
+                                <td>{{mainTask.name}}</td>
+                                <td>{{mainTask.date}}</td>
+                                <td>{{mainTask.assigned}}</td>
+                            </tr>
+                        </table>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    <!-- <script src="js/service.js"> -->
+    <!-- </script> -->
+    <script src="js/controller.js"></script>
+</body>
+
+</html>
